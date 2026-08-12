@@ -59,7 +59,7 @@
 ## 本地预览
 
 这个网站可以直接双击 `index.html` 预览。通过导航栏检查各个页面，并在桌面和手机宽度下确认文字与图片显示正常。
-直接打开时，`announcements/index.html` 是 Hugo 构建前的本地兼容页面；正式部署到 GitHub Pages 后，该地址会由 Hugo 自动生成的活动动态列表替换。
+直接打开时，`announcements/index.html` 是 Hugo 构建前的本地兼容页面；正式部署到 GitHub Pages 后，该地址会由 Hugo 自动生成的活动动态列表替换。为兼容本地双击预览，导航链接使用完整的 `announcements/index.html` 路径。
 
 ## GitHub Pages 部署
 

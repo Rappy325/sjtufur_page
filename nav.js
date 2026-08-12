@@ -37,7 +37,7 @@ window.SITE_NAV_HTML = `
         </ul>
       </li>
       <li><a data-page-target="join" href="${siteBase}join.html">加入我们</a></li>
-      <li><a data-page-target="announcements" href="${siteBase}announcements/">活动动态</a></li>
+      <li><a data-page-target="announcements" href="${siteBase}announcements/index.html">活动动态</a></li>
       <li><a data-page-target="links" href="${siteBase}links.html">外部链接</a></li>
       <li><a data-page-target="gallery" href="${siteBase}gallery.html">多媒体内容</a></li>
     </ul>
