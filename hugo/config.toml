@@ -1,0 +1,11 @@
+baseURL = "https://YOUR-ACCOUNT.github.io/YOUR-REPOSITORY/"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh-cn"
+title = "上海交通大学 Furry 同好社"
+publishDir = "public"
+
+[params]
+description = "上海交通大学 Furry 同好社活动动态"
+
+[permalinks]
+announcements = "/announcements/:slug/"

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <link rel="stylesheet" href="{{ if .IsPage }}../../{{ else }}../{{ end }}styles.css">
+</head>
+<body data-page="announcements" data-site-base="{{ if .IsPage }}../../{{ else }}../{{ end }}">
+  <div data-site-nav-slot></div>
+  {{ block "main" . }}{{ end }}
+  <footer class="footer"><p>© 2026 上海交通大学 Furry 同好社。本站为同好社团展示页。</p></footer>
+  <script src="{{ if .IsPage }}../../{{ else }}../{{ end }}nav.js"></script>
+  <script src="{{ if .IsPage }}../../{{ else }}../{{ end }}script.js"></script>
+</body>
+</html>

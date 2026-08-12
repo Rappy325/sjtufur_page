@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main>
+  <header class="page-hero"><div class="page-hero-inner">
+    <p class="eyebrow">ACTIVITY LOG</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p>
+  </div></header>
+  <section class="section"><div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">最新发布</p><h2>活动动态</h2><p>最新文章显示在前面，已结束的活动会自动保留在归档中。</p></div>
+    <div class="announcement-list">
+      {{ range .Pages.ByDate.Reverse }}
+      <article class="announcement-item"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time><div>
+        {{ with .Params.tags }}<span class="status-tag">{{ delimit . " / " }}</span>{{ end }}
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Summary }}</p>
+        <a class="section-more" href="{{ .RelPermalink }}">阅读全文 →</a>
+      </div></article>
+      {{ else }}<div class="empty-note">暂时还没有公开发布的活动动态。</div>{{ end }}
+    </div>
+  </div></section>
+</main>
+{{ end }}

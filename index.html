@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="上海交通大学 Furry 同好社主页，包含社团简介、活动通告、成员介绍、外部链接和相册内容。">
+  <title>上海交通大学 Furry 同好社</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="index">
+  <div data-site-nav-slot></div>
+
+  <main>
+    <section class="hero" id="home" aria-label="主页欢迎区">
+      <div class="carousel" data-carousel>
+        <div class="slides">
+          <article class="slide is-active" data-slide>
+            <img src="assets/images/index_display/2025.png" alt="2025大合照" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
+            <!-- <div class="slide-placeholder slide-campus" role="img" aria-label="校园集体照片占位"></div> -->
+          </article>
+          <article class="slide" data-slide>
+            <div class="slide-placeholder slide-workshop" role="img" aria-label="绘画工作坊照片占位"></div>
+          </article>
+          <article class="slide" data-slide>
+            <div class="slide-placeholder slide-photo" role="img" aria-label="摄影活动照片占位"></div>
+          </article>
+        </div>
+
+        <button class="carousel-btn prev" type="button" aria-label="上一张照片" data-prev>‹</button>
+        <button class="carousel-btn next" type="button" aria-label="下一张照片" data-next>›</button>
+
+        <div class="carousel-dots" aria-label="轮播图分页">
+          <button class="is-active" type="button" aria-label="切换到第 1 张照片" data-dot="0"></button>
+          <button type="button" aria-label="切换到第 2 张照片" data-dot="1"></button>
+          <button type="button" aria-label="切换到第 3 张照片" data-dot="2"></button>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">SJTU Furry Community</p>
+        <h1>欢迎来到上海交通大学 Furry 同好社</h1>
+        <p>
+          我们聚集喜欢 Furry 文化、原创角色、兽装交流、绘画创作和摄影活动的同学，在校园里建立一个尊重、开放、友善的同好空间。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="announcements/">查看活动动态</a>
+          <a class="btn secondary" href="about.html">了解社团</a>
+          <a class="btn secondary" href="join.html">加入我们</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="intro">
+      <div class="section-inner two-column">
+        <div>
+          <p class="eyebrow">关于我们</p>
+          <h2>一个面向校园同好的 Furry 交流社群</h2>
+        </div>
+        <div class="prose">
+          <p>
+            上海交通大学 Furry 同好社以兴趣交流为核心，欢迎对 Furry 文化、角色设定、插画、兽装制作、摄影与线下活动感兴趣的同学加入。
+          </p>
+          <p>
+            社团活动强调互相尊重、边界意识与原创表达。无论你是长期创作者、刚接触 Furry 文化，还是只是想找同好聊天，都可以在这里找到合适的位置。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="announcements">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">活动动态</p>
+          <h2>新活动与历史活动</h2>
+        </div>
+        <!-- 首页只展示最近三条活动动态；完整内容请在 announcements/ 中维护。 -->
+        <div class="notice-list">
+          <article class="notice">
+            <time datetime="2026-09-15">2026.09.15</time>
+            <h3>迎新见面会</h3>
+            <p>面向新成员的轻松交流活动，包含社团介绍、兴趣分组和自由聊天环节。</p>
+          </article>
+          <article class="notice">
+            <time datetime="2026-10-12">2026.10.12</time>
+            <h3>原创角色设定工作坊</h3>
+            <p>一起讨论角色设定、配色、世界观和设定稿整理方法，欢迎带作品来交流。</p>
+          </article>
+          <article class="notice">
+            <time datetime="2026-11-08">2026.11.08</time>
+            <h3>校园摄影小聚</h3>
+            <p>计划在校园内进行主题合影和摄影练习，具体地点和报名方式将在群内通知。</p>
+          </article>
+        </div>
+        <p class="section-more"><a href="announcements/">查看全部动态 →</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="what-we-do">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">社团日常</p>
+          <h2>我们大概会做什么</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-icon">✦</span>
+            <h3>绘画与设定</h3>
+            <p>角色设定、头像绘制、作品互评和灵感整理。</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">◎</span>
+            <h3>兽装交流</h3>
+            <p>兽装穿戴体验、维护知识和活动礼仪交流。</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">▣</span>
+            <h3>线下聚会</h3>
+            <p>桌游、茶话会、观影和校园散步。</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">◈</span>
+            <h3>摄影记录</h3>
+            <p>校园合影、活动记录和相册归档。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="members">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">成员</p>
+          <h2>成员展示位</h2>
+          <p>这里可以放社团负责人、活动组织者或成员投稿。姓名、头像和介绍都可以后续替换。</p>
+        </div>
+        <div class="member-grid">
+          <!-- 首页只放少量成员或部门预览；完整社员资料请在 members.html 中维护。 -->
+          <article class="member">
+            <div class="avatar-placeholder">A</div>
+            <h3>社长 / 负责人</h3>
+            <p>负责社团事务、活动统筹与新成员沟通。</p>
+          </article>
+          <article class="member">
+            <div class="avatar-placeholder">B</div>
+            <h3>创作组</h3>
+            <p>组织绘画交流、设定分享和作品展示。</p>
+          </article>
+          <article class="member">
+            <div class="avatar-placeholder">C</div>
+            <h3>活动组</h3>
+            <p>协助线下聚会、摄影活动和场地安排。</p>
+          </article>
+        </div>
+        <p class="section-more"><a href="members.html">查看成员名录 →</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">多媒体内容</p>
+          <h2>相册预览</h2>
+          <p>将活动照片放入 <code>assets/images/</code> 后，把下方占位块替换成真实图片即可。</p>
+        </div>
+        <!-- 图片替换方法：把图片放入 assets/images/，再把占位 div 改成 img，例如：
+             <img src="assets/images/activity-01.jpg" alt="活动内容描述">
+        -->
+        <div class="gallery-grid">
+          <figure>
+            <div class="gallery-placeholder gallery-one"></div>
+            <figcaption>校园合照</figcaption>
+          </figure>
+          <figure>
+            <div class="gallery-placeholder gallery-two"></div>
+            <figcaption>绘画工作坊</figcaption>
+          </figure>
+          <figure>
+            <div class="gallery-placeholder gallery-three"></div>
+            <figcaption>线下聚会</figcaption>
+          </figure>
+          <figure>
+            <div class="gallery-placeholder gallery-four"></div>
+            <figcaption>摄影记录</figcaption>
+          </figure>
+        </div>
+        <p class="section-more"><a href="gallery.html">进入完整相册 →</a></p>
+      </div>
+    </section>
+
+    <section class="section band" id="links">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">外部链接</p>
+          <h2>常用入口</h2>
+        </div>
+        <!-- 将下面 href 中的 # 替换为真实网址。 -->
+        <div class="link-list">
+          <a href="#" aria-label="社团 QQ 群链接占位">社团 QQ 群</a>
+          <a href="#" aria-label="Bilibili 链接占位">Bilibili</a>
+          <a href="#" aria-label="GitHub 链接占位">GitHub</a>
+          <a href="mailto:example@example.com">联系邮箱</a>
+        </div>
+        <p class="section-more"><a href="links.html">查看全部入口 →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 上海交通大学 Furry 同好社。本站为同好社团展示页。</p>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

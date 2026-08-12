@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main>
+  <header class="page-hero"><div class="page-hero-inner">
+    <p class="eyebrow">ACTIVITY UPDATE</p><h1>{{ .Title }}</h1>
+    <p>{{ .Date.Format "2006 年 01 月 02 日" }}{{ with .Params.tags }} · {{ delimit . " / " }}{{ end }}</p>
+  </div></header>
+  <article class="section"><div class="section-inner prose announcement-post">
+    {{ .Content }}<p class="section-more"><a href="../">← 返回活动动态</a></p>
+  </div></article>
+</main>
+{{ end }}

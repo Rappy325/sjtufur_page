@@ -1,0 +1,10 @@
+# Hugo 构建产物
+hugo/public/
+hugo/resources/
+.hugo_build.lock
+
+# 操作系统和编辑器文件
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
