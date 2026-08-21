@@ -896,6 +896,13 @@ figcaption {
   font-weight: 800;
 }
 
+/* 相册真实图片：与占位块保持一致的 4:3 比例，超出部分居中裁切 */
+.media-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
 .empty-note {
   padding: 22px;
   border-left: 3px solid var(--yellow);
