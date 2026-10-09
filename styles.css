@@ -1042,3 +1042,214 @@ figcaption {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ============================================================
+   界面美化增强（2026-08）
+   原则：不改变原有布局与配色体系，所有颜色均取自 :root 变量，
+   深夜模式自动适配； prefers-reduced-motion 用户不受影响。
+   ============================================================ */
+
+/* 选中文字时使用品牌青色高亮 */
+::selection {
+  background: rgba(47, 156, 149, 0.24);
+}
+
+:root[data-theme="dark"] ::selection {
+  background: rgba(99, 210, 201, 0.32);
+}
+
+/* 大标题自动平衡换行，避免短词孤行 */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* 锚点跳转时给吸顶导航栏留出空间，避免标题被遮住 */
+section[id],
+.album-section,
+.album-heading {
+  scroll-margin-top: 88px;
+}
+
+/* 英文小标签增加字距，更像"栏目眉" */
+.eyebrow {
+  letter-spacing: 0.08em;
+}
+
+/* 导航链接过渡 + 当前页指示条 */
+.nav-menu a,
+.nav-menu button,
+.theme-toggle {
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.nav-menu a.is-current,
+.nav-menu button.is-current {
+  box-shadow: inset 0 -2px 0 var(--teal);
+}
+
+/* 按钮：悬停浮起、按下回弹、键盘聚焦可见 */
+.btn {
+  transition: transform 180ms ease, box-shadow 180ms ease,
+    background-color 180ms ease, border-color 180ms ease;
+}
+
+.btn.primary:hover {
+  background: #d64f48;
+  box-shadow: 0 10px 22px rgba(232, 93, 86, 0.32);
+  transform: translateY(-2px);
+}
+
+:root[data-theme="dark"] .btn.primary:hover {
+  background: #ff8781;
+  box-shadow: 0 10px 22px rgba(255, 118, 111, 0.28);
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  transition-duration: 80ms;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* 卡片：悬停时轻微浮起并加深阴影，提示可交互 */
+.notice,
+.feature,
+.member,
+.roster-card,
+.media-item,
+.gallery-grid figure {
+  transition: transform 200ms ease, box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.notice:hover,
+.feature:hover,
+.member:hover,
+.roster-card:hover,
+.media-item:hover,
+.gallery-grid figure:hover {
+  transform: translateY(-3px);
+  border-color: rgba(47, 156, 149, 0.4);
+  box-shadow: var(--shadow);
+}
+
+/* 特色图标在卡片悬停时反白填充 */
+.feature-icon {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.feature:hover .feature-icon {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* 首页主视觉文字加柔和阴影，保证在任何轮播图上清晰可读 */
+.hero-copy {
+  text-shadow: 0 2px 18px rgba(10, 13, 18, 0.45);
+}
+
+/* 轮播：按钮加毛玻璃与过渡，圆点放大指示当前页 */
+.carousel-btn {
+  backdrop-filter: blur(6px);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  border-color: #fff;
+}
+
+.carousel-dots button {
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.carousel-dots button.is-active {
+  transform: scale(1.3);
+}
+
+/* "查看更多 →" 链接：悬停下划线偏移动画 */
+.section-more a,
+.text-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.section-more a:hover,
+.text-link:hover {
+  text-decoration-color: var(--teal);
+}
+
+/* 外部链接按钮与页内索引：悬停浮起 */
+.link-list a,
+.page-index a {
+  transition: transform 180ms ease, border-color 180ms ease,
+    background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.link-list a:hover,
+.page-index a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}
+
+/* 成员行与动态条目：悬停淡青色底 */
+.member-row,
+.announcement-item,
+.directory-item {
+  transition: background-color 180ms ease;
+}
+
+.member-row:hover,
+.announcement-item:hover {
+  background: rgba(47, 156, 149, 0.05);
+}
+
+/* 链接目录：悬停时箭头右移 */
+.directory-arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.directory-item:hover .directory-arrow {
+  transform: translateX(5px);
+}
+
+/* 页脚与正文衔接处加一条品牌渐变细线 */
+.footer {
+  border-top: 0;
+  background:
+    linear-gradient(90deg, var(--teal), var(--yellow), var(--coral)) top left / 100% 3px no-repeat,
+    var(--surface);
+}
+
+/* 图片加载失败时占位槽才显示虚线框，Logo 就位后用实线细边 */
+.logo-slot:has(img):not(.is-empty) {
+  border: 1px solid var(--line);
+}
+
+.logo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 轮播放入真实照片后，同样叠加设计好的暗化渐变，保证文字可读 */
+.slide:has(img)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+}
