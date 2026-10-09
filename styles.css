@@ -1303,3 +1303,7 @@ section[id],
 .mascot-page-title { white-space: nowrap; font-size: clamp(1.9rem, 5vw, 4.5rem) !important; }
 .mascot-page-subtitle { margin-top: 10px !important; color: var(--teal) !important; font-size: .78rem !important; font-weight: 800; letter-spacing: .18em; }
 @media (max-width: 560px) { .mascot-page-title { font-size: clamp(1.45rem, 8vw, 2.25rem) !important; } .mascot-page-subtitle { font-size: .68rem !important; letter-spacing: .12em; } }
+
+/* 印章图使用透明底，避免额外圆形裁切造成双重边框 */
+.stamp-visual { background: transparent; border: 0; box-shadow: none; }
+.stamp-visual img { border-radius: 0; }
