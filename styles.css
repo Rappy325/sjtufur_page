@@ -1293,3 +1293,8 @@ section[id],
 .sticker-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1040px; }
 .sticker-card img { max-width: 190px; }
 @media (max-width: 900px) { .sticker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sticker-card img { max-width: 220px; } }
+
+/* 吉祥物介绍图与正文并排 */
+.mascot-intro { align-items: start; }
+.mascot-side-image { align-self: start; }
+.mascot-side-image img { max-height: 520px; }
