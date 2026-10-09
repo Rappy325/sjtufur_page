@@ -1307,3 +1307,7 @@ section[id],
 /* 印章图使用透明底，避免额外圆形裁切造成双重边框 */
 .stamp-visual { background: transparent; border: 0; box-shadow: none; }
 .stamp-visual img { border-radius: 0; }
+
+/* 印章恢复原始完整白底图，不裁切 */
+.stamp-visual { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--card-shadow); }
+.stamp-visual img { border-radius: 0; width: 100%; height: auto; object-fit: contain; }
