@@ -1284,3 +1284,12 @@ section[id],
 .sticker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; margin: 0 auto; }
 .sticker-card img { max-width: 300px; margin: 0 auto; }
 @media (max-width: 560px) { .sticker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .sticker-card img { max-width: 100%; } }
+
+/* 主题标题与设计账号入口 */
+.section-lead { margin-top: -10px; color: var(--muted); font-size: 1.08rem; }
+.symbol-link { margin-top: 12px; background: var(--teal); color: #fff; }
+.symbol-link:hover { background: #277f79; color: #fff; }
+/* 桌面端按四列两行展示八张表情包 */
+.sticker-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1040px; }
+.sticker-card img { max-width: 190px; }
+@media (max-width: 900px) { .sticker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sticker-card img { max-width: 220px; } }
