@@ -1,11 +1,11 @@
 baseURL = "https://rappy325.github.io/sjtufur_page/"
 languageCode = "zh-CN"
 defaultContentLanguage = "zh-cn"
-title = "上海交通大学 Furry 同好社"
+title = "东川路800号荣毛社"
 publishDir = "public"
 
 [params]
-description = "上海交通大学 Furry 同好社活动动态"
+description = "东川路800号荣毛社活动动态"
 
 [permalinks]
 announcements = "/announcements/:slug/"
