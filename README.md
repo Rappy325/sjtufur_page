@@ -65,7 +65,7 @@
 
 1. 将本目录提交到 GitHub 仓库，并把 `hugo/config.toml` 中的 `baseURL` 改成你的 GitHub Pages 地址。
 2. 在仓库 `Settings → Pages` 的发布来源选择 `GitHub Actions`。
-3. 以后新增或修改 `hugo/content/announcements/` 下的 `.md` 文件并推送，Action 会自动构建和发布。
+3. 以后新增或修改 `hugo/content/announcements/` 下的 `.md` 文件，通过 Pull Request 合并到 `main` 后，Action 会自动构建和发布。
 
 ### 新增一篇活动动态
 
@@ -81,4 +81,4 @@ summary: "列表页显示的一句话摘要"
 ---
 ```
 
-`draft: true` 的文章不会公开显示；准备发布时改成 `false`，然后提交并推送即可。
+`draft: true` 的文章不会公开显示；准备发布时改成 `false`，然后提交并走 Pull Request 合并到 `main` 即可。

@@ -1,6 +1,6 @@
 # 活动动态发布教程
 
-本网站的“活动动态”使用 Hugo 生成。以后只要新增 Markdown 文件并推送到 GitHub，GitHub Actions 就会自动构建和发布网页。
+本网站的“活动动态”使用 Hugo 生成。新增 Markdown 文件后，通过 Pull Request 合并到 `main` 分支，GitHub Actions 就会自动构建和发布网页。请不要直接推送到 `main`。
 
 ## 第一次配置
 
@@ -118,15 +118,25 @@ hugo/content/announcements/2026-10-autumn-meetup/poster.jpg
 
 正文中使用 `![活动海报](poster.jpg)` 即可。
 
-## 日常推送
+## 日常推送（Pull Request 流程）
+
+所有改动都通过 Pull Request 合并到 `main`，不要直接推送 `main`。
 
 在网站根目录执行：
+
+```powershell
+git checkout main
+git pull
+git checkout -b feature/my-update
+```
+
+修改文件后提交并推送分支：
 
 ```powershell
 git status
 git add hugo/content/announcements
 git commit -m "发布秋季线下聚会通知"
-git push
+git push -u origin feature/my-update
 ```
 
 如果同时修改了样式、导航或其他页面：
@@ -144,10 +154,11 @@ git status
 git diff --cached
 ```
 
-推送完成后进入 GitHub 仓库的 `Actions` 页面，等待构建和部署都显示绿色。网站可能需要几十秒到几分钟更新；浏览器仍显示旧内容时按 `Ctrl + F5`。
+然后在 GitHub 仓库页面为该分支创建 Pull Request（base 选 `main`），确认无误后合并。合并后进入仓库的 `Actions` 页面，等待构建和部署都显示绿色。网站可能需要几十秒到几分钟更新；浏览器仍显示旧内容时按 `Ctrl + F5`。
 
 ## 发布前检查
 
+- 改动通过 Pull Request 合并到 `main`，没有直接推送 `main`。
 - `title`、`date`、`summary` 已填写。
 - 要公开的文章使用 `draft: false`。
 - 时间、地点、报名截止时间正确。
