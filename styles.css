@@ -1298,3 +1298,8 @@ section[id],
 .mascot-intro { align-items: start; }
 .mascot-side-image { align-self: start; }
 .mascot-side-image img { max-height: 520px; }
+
+/* 吉祥物页标题保持单行，并用英文副标题补充层次 */
+.mascot-page-title { white-space: nowrap; font-size: clamp(1.9rem, 5vw, 4.5rem) !important; }
+.mascot-page-subtitle { margin-top: 10px !important; color: var(--teal) !important; font-size: .78rem !important; font-weight: 800; letter-spacing: .18em; }
+@media (max-width: 560px) { .mascot-page-title { font-size: clamp(1.45rem, 8vw, 2.25rem) !important; } .mascot-page-subtitle { font-size: .68rem !important; letter-spacing: .12em; } }
