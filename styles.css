@@ -1331,6 +1331,19 @@ section[id],
 .about-carousel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: about-slide 15s infinite; }
 .about-carousel img:nth-child(1) { animation-delay: 0s; }
 .about-carousel img:nth-child(2) { animation-delay: 5s; }
-.about-carousel img:nth-child(3) { animation-delay: 10s; }
-@keyframes about-slide { 0%, 28% { opacity: 1; } 33%, 95% { opacity: 0; } 100% { opacity: 1; } }
+.about-carousel img:nth-child(3) { animation-delay: 10s; }.about-carousel[data-about-carousel] img { opacity: 0; animation: none; transition: opacity 280ms ease; }
+.about-carousel[data-about-carousel] img.is-active { opacity: 1; }
+.about-carousel-btn { position: absolute; top: 50%; z-index: 2; width: 42px; height: 42px; border: 1px solid rgba(255, 255, 255, 0.78); border-radius: 50%; background: rgba(30, 36, 48, 0.48); color: #fff; font-size: 2rem; line-height: 1; cursor: pointer; transform: translateY(-50%); }
+.about-carousel-btn:hover, .about-carousel-btn:focus-visible { outline: 0; background: rgba(30, 36, 48, 0.7); }
+.about-carousel-btn.prev { left: 14px; }
+.about-carousel-btn.next { right: 14px; }
+.join-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); }
+.join-contact strong { color: var(--ink); }
+.join-contact a { color: var(--teal); font-weight: 800; }
+.member-contact { display: block; margin-top: 4px; color: var(--teal); font-size: 0.86rem; font-weight: 700; }@keyframes about-slide { 0%, 28% { opacity: 1; } 33%, 95% { opacity: 0; } 100% { opacity: 1; } }
+.join-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.join-option { min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--card-shadow); }
+.join-option h2 { font-size: clamp(1.45rem, 2.4vw, 2.2rem); }
+@media (max-width: 900px) { .join-options { grid-template-columns: 1fr; } }
+
 @media (max-width: 900px) { .about-feature-grid, .about-feature-grid.reverse { grid-template-columns: 1fr; gap: 28px; } .about-feature-grid.reverse .about-copy, .about-feature-grid.reverse .about-carousel { order: initial; } .about-carousel { min-height: 280px; } }

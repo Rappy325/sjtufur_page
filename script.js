@@ -82,6 +82,56 @@
     });
   }
 
+  document.querySelectorAll("[data-about-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll("[data-about-slide]"));
+    const prev = carousel.querySelector("[data-about-prev]");
+    const next = carousel.querySelector("[data-about-next]");
+    let activeIndex = 0;
+    let timerId = null;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function showSlide(index) {
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-active", slideIndex === activeIndex);
+      });
+    }
+
+    function startAutoPlay() {
+      if (prefersReducedMotion || timerId) {
+        return;
+      }
+      timerId = window.setInterval(() => showSlide(activeIndex + 1), 5000);
+    }
+
+    function stopAutoPlay() {
+      if (!timerId) {
+        return;
+      }
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+
+    prev?.addEventListener("click", () => {
+      stopAutoPlay();
+      showSlide(activeIndex - 1);
+      startAutoPlay();
+    });
+
+    next?.addEventListener("click", () => {
+      stopAutoPlay();
+      showSlide(activeIndex + 1);
+      startAutoPlay();
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoPlay);
+    carousel.addEventListener("mouseleave", startAutoPlay);
+    carousel.addEventListener("focusin", stopAutoPlay);
+    carousel.addEventListener("focusout", startAutoPlay);
+    showSlide(0);
+    startAutoPlay();
+  });
+
   const carousel = document.querySelector("[data-carousel]");
   if (!carousel) {
     return;

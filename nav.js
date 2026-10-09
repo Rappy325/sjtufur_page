@@ -4,7 +4,7 @@ window.SITE_NAV_HTML = `
   <nav class="nav" aria-label="主导航">
     <a class="brand" href="${siteBase}index.html" aria-label="返回主页">
       <span class="logo-slot" aria-hidden="true"><img src="${siteBase}assets/images/sjtufur_logo1.png" alt=""></span>
-      <span><span class="brand-title">上海交通大学 Furry 同好社</span><span class="brand-subtitle">创作 · 交流 · 聚会</span></span>
+      <span><span class="brand-title">东川路800号荣毛社</span><span class="brand-subtitle">创作 · 交流 · 聚会</span></span>
     </a>
     <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span data-theme-label>深色模式</span></button>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu"><span class="sr-only">打开导航菜单</span><span></span><span></span><span></span></button>
