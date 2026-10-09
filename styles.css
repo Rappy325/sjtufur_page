@@ -1260,3 +1260,10 @@ section[id],
   inset: 0;
   background: var(--hero-overlay);
 }
+
+/* 社团代表物页面 */
+.symbol-grid { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); gap: 52px; align-items: center; }
+.symbol-visual { display: grid; place-items: center; min-height: 280px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--card-shadow); }
+.symbol-visual img { width: min(100%, 460px); max-height: 420px; object-fit: contain; }
+.stamp-visual img { border-radius: 50%; }
+@media (max-width: 900px) { .symbol-grid { grid-template-columns: 1fr; gap: 28px; } }
