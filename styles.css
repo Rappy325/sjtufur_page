@@ -28,7 +28,7 @@
 
   --card-shadow: 0 10px 28px rgba(30, 36, 48, 0.06);
 
-  --hero-overlay: linear-gradient(90deg, rgba(30, 36, 48, 0.64), rgba(30, 36, 48, 0.22) 54%, rgba(30, 36, 48, 0.08));
+  --hero-overlay: linear-gradient(90deg, rgba(30, 36, 48, 0.68), rgba(30, 36, 48, 0.38) 54%, rgba(30, 36, 48, 0.16));
 
   --radius: 8px;
 
@@ -68,7 +68,7 @@
 
   --card-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
 
-  --hero-overlay: linear-gradient(90deg, rgba(10, 13, 18, 0.76), rgba(10, 13, 18, 0.34) 54%, rgba(10, 13, 18, 0.14));
+  --hero-overlay: linear-gradient(90deg, rgba(10, 13, 18, 0.78), rgba(10, 13, 18, 0.48) 54%, rgba(10, 13, 18, 0.2));
 
   color-scheme: dark;
 
@@ -1881,13 +1881,21 @@ figcaption {
 
   .nav-menu a,
 
-  .nav-menu button,
-
-  .theme-toggle {
+  .nav-menu button {
 
     width: 100%;
 
     justify-content: space-between;
+
+  }
+
+
+
+  /* 主题切换按钮保持页头行内紧凑，不参与菜单全宽（修复 560–900px 重叠） */
+
+  .theme-toggle {
+
+    flex: 0 0 auto;
 
   }
 
@@ -2732,4 +2740,251 @@ section[id],
   .theme-toggle {
     padding: 8px 10px;
   }
+}
+
+
+/* ============================================================
+
+   AstraWeb 视觉借鉴（2026-10，审定后执行）
+
+   A1 导航下划线扫入 / A2 hero 网格纹理 / A3 区块描边序号
+   / A4 选中高亮 / A5 聚光灯揭示 / B1 友盟星图
+   / B2 墨水涟漪 / B3 hero 标题粒子
+
+   原则：全部颜色取自 :root 变量，深夜模式自动适配；
+   prefers-reduced-motion 用户自动降级为静态或无效果。
+
+   ============================================================ */
+
+/* ---- A1 导航下划线扫入（借鉴 AstraWeb nav a::after scaleX） ---- */
+
+.nav-menu > li > a,
+.nav-menu > li > button {
+  position: relative;
+}
+
+.nav-menu > li > a::after,
+.nav-menu > li > button::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 3px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
+  pointer-events: none;
+}
+
+.submenu a::after {
+  left: 10px;
+  right: 10px;
+}
+
+.nav-menu > li > a:hover::after,
+.nav-menu > li > button:hover::after,
+.nav-menu > li > a:focus-visible::after,
+.nav-menu > li > button:focus-visible::after,
+.nav-menu > li > a.is-current::after,
+.nav-menu > li > button.is-current::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-menu > li > a::after,
+  .nav-menu > li > button::after {
+    transition: none;
+  }
+}
+
+/* ---- A2 首页 hero 网格纹理（借鉴 AstraWeb .hero-grid） ---- */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 78%);
+  mask-image: linear-gradient(90deg, #000 0%, transparent 78%);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- A3 区块描边序号（借鉴 AstraWeb .outline-number） ---- */
+
+.section-heading {
+  position: relative;
+}
+
+.section-index {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  font-size: clamp(44px, 6vw, 68px);
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--line);
+  pointer-events: none;
+  user-select: none;
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .section-index {
+    color: var(--line);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-index {
+    display: none;
+  }
+}
+
+/* ---- A4 选中文字品牌色高亮 ---- */
+
+::selection {
+  background: rgba(47, 156, 149, 0.22);
+}
+
+/* ---- A5 聚光灯揭示（借鉴 AstraWeb character-portrait-reveal） ---- */
+
+.spotlight-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.spotlight-wrap canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+
+.spotlight-hint {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  background: rgba(17, 20, 24, 0.55);
+  color: #edf2f7;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.spotlight-hint[data-faded="true"] {
+  opacity: 0;
+}
+
+/* ---- B1 友盟星图（借鉴 AstraWeb friends-galaxy / star-constellation） ---- */
+
+.galaxy-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #0b1220;
+  border: 1px solid var(--line);
+}
+
+.galaxy-panel canvas {
+  display: block;
+  width: 100%;
+  height: 440px;
+}
+
+.galaxy-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(237, 242, 247, 0.55);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .galaxy-panel canvas {
+    height: 330px;
+  }
+}
+
+/* ---- B2 图库墨水涟漪（借鉴 AstraWeb ripple-image / ink-ripple-mask） ---- */
+
+.media-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.ink-ripple {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(47, 156, 149, 0.5) 0%, rgba(47, 156, 149, 0.16) 42%, transparent 70%);
+  animation: ink-ripple 0.9s ease-out forwards;
+}
+
+@keyframes ink-ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(16);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-ripple {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ---- B3 hero 标题粒子（借鉴 AstraWeb particle-field） ---- */
+
+.hero-title {
+  position: relative;
+  /* 限制标题宽度折成两行，留在 hero 遮罩的深色区域内保证可读 */
+  max-width: 9em;
+  /* 粒子汇聚完成后文字由透明过渡回实色 */
+  transition: color 0.7s ease;
+}
+
+.hero-title-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  /* 实线化时画布整体淡出 */
+  transition: opacity 0.7s ease;
+}
+
+.hero-title.is-enhanced {
+  color: transparent;
 }
